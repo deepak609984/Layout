@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>introduction css selector colors</title>
+</head>
+<style>
+    *,::before,::after{ margin: 0;}
+    body{ font-family: sans-serif; background: #ddd;}
+    button{ cursor: pointer;}
+.container{ max-width: 1200px;
+margin: auto;
+
+}
+p{ padding: 10px 0;}
+
+header{  background: #add8e6; padding: 10px; /*overflow: auto;*/ display: flex; justify-content: space-between; align-items: center;}
+/*header h1{ float: left;}
+header button{ float: right;}
+.clear{ clear: both;}*/
+
+nav{   background: #222; padding: 10px; position: sticky; top: 0; z-index: 1; }
+
+nav ul{list-style: none;padding: 0;  }
+
+
+nav > ul{  display: flex; gap: 0 1rem; }
+
+nav a{  text-decoration: none; display: block; color: #fff;
+     padding: .5rem 1rem; }
+
+
+
+nav .drop::before{ content: ""; border:5px solid; display: inline-block; 
+border-color: #fff transparent transparent;
+margin: -3px 3px;
+
+}
+
+nav li:hover > a{ background: white; color: black;}
+
+nav li:hover a::before{ border-top-color: black;}
+
+.dropdown{ position: absolute;      background: #222; display: none; padding: 10px; border: 1px solid #666;}
+nav li:hover .dropdown{ display: block; }
+
+.banner{ position: relative; }
+.banner img{ max-width: 100%; height: auto;}
+.banner figcaption{ position: absolute; bottom: 0; left:0 ;right: 0;
+    
+    
+    background:  #fff8; line-height: 2; text-align: center;}
+
+
+.controls{ width: 40px; aspect-ratio: 1/1; position: absolute; 
+    
+    top: 50%; font-size: 20px; }
+
+.prev{ left: 0;}
+.text {right: 0; }
+
+
+
+
+    main{ background: #ffffff;    display:flex;}
+    main p{ margin: 10px;}
+main aside{flex-basis: 25%; padding: 10px;   height: 100%; position: sticky; top: 50px;}
+
+aside li::after{ content: "+"; float: right;}
+
+
+main article{flex-basis: 75%; padding: 10px;}
+
+    /*section{ background: lightblue; padding: 10px; margin-top: 10px; clear: both;}*/
+/* blockquote{ column-count: 2;}*/
+/*.row{ display: flex;}*/
+
+
+
+footer{ background: #0000ff; color: #ffffff;   padding: 10px; display: flex; justify-content: space-between;    height: 100vh;}
+
+.top{ background: #fff; border: 1px solid black; padding: 5px; position: fixed; right: 10px; bottom: 10px;}
+
+/*.table{ border: 1px solid black; margin: 1rem 0; border-collapse: collapse; width: 100%;}
+.table td, .table th{ border: 1px solid #555; padding: 10px;}
+
+.table thead{ background: #333; color: #fff;}
+.table thead{ position: sticky; top: 5.6px;}*/
+
+/*main img{ float: right; margin-left: 10px;}*/
+
+/*.odd{color: red; }*/
+/*h3.odd{ color: red;}*/
+
+/*h1,h2,h3,.odd{ color: red; text-align: center;}*/
+/* Nesting */
+/*footer p{ color: blue;} */                                                       /* descendent selector */
+
+/*footer > p{ color: blue;}*/                                               /* child selector */
+/*footer div p{ color: red;}*/
+
+/*h3+p{border: 1px solid black;}*/
+/*a{ color: blue;}
+nav a{ color: red;}
+body nav a{ color: brown;}*/
+
+/*p{ color: red !important;}*/
+
+/*main p{ color: green;}*/
+
+aside ol{list-style: decimal-leading-zero inside;  padding: 0; border: 1px solid black; }
+aside li{ border-top:  1px solid black; padding: 5px;}
+
+aside li:first-child{ border-top: none ;}
+
+details summary{ cursor: pointer; margin: 10px; }
+details summary::after{ content: "+"; float: right;}
+
+</style>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Brand</h1>
+<button>sign up</button>
+
+        </header>
+        <nav>
+           <ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">About</a></li>
+<li><a class="drop" href="#">Blog</a>
+<div class="dropdown">
+<ul>
+
+<li><a href="#">Technical</a></li>
+<li><a href="#">Science</a></li>
+<li><a  href="#">Economic</a>
+
+</ul>
+
+</div>
+
+
+</li>
+<li><a class="drop" href="#">Courses</a>
+
+<div class="dropdown">
+<ul>
+
+<li><a href="#">Full stack Mern</a></li>
+<li><a href="#">Front with React</a></li>
+<li><a href="#">javascript</a>
+
+<li><a href="#">React</a></li>
+<li><a href="#">Angular</a></li>
+
+<li><a href="#">Node.js</a></li>
+
+
+</ul>
+
+</div>
+
+
+
+</li>
+
+<li><a href="#">Career</a></li>
+<li><a href="#">Contact</a></li>
+
+           </ul>
+
+        </nav>
+<div class="banner" role="banner">
+<figure>
+<img src="a.jpeg" alt="surfing" width="1200" height="400" >
+
+
+
+
+
+<figcaption>Sea Surfing in Andaman</figcaption>
+
+</figure>
+<button class="controls prev">&larr;</button>
+<button class="controls text">&rarr;;</button>
+
+
+</div>
+
+
+        <main>
+<aside>
+    <h2>Aside</h2>
+
+    <ol>
+<li>List item</li>
+<li>List item</li>
+<li>List item</li>
+<li>List item</li>
+<li>List item</li>
+<li>List item</li>
+    </ol>
+
+
+    <details>
+        <summary>open</summary>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum non beatae esse magnam nesciunt quis perferendis voluptates harum nemo consequatur!</p>
+    
+    </details>
+
+</aside>
+
+<article>
+            <h2>Article</h2>
+
+<p id="p1" class="odd">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat libero a pariatur dicta obcaecati ratione at molestiae dolorem enim aperiam? Quam odio sit voluptas magni, laboriosam vero distinctio amet debitis rem facere fugit animi reiciendis assumenda eaque perferendis repudiandae. Natus eum sapiente laboriosam voluptatum eveniet at voluptates. Quos, corrupti iusto?</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis qui, eos nisi voluptas autem quasi id molestias delectus doloribus quos dolorem commodi quia ut. Excepturi dolorum repudiandae veniam et non!</p> 
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, delectus! Minima at, rerum dolorum aliquam, quasi neque doloribus obcaecati distinctio tenetur ea minus reprehenderit temporibus dolore sint eum, beatae aut cumque exercitationem nam unde. Placeat, soluta! Reiciendis, vel perspiciatis aliquam aut nisi magni omnis facere, nam impedit, recusandae ratione id?</p>
+
+
+<h2>Article</h2>
+<blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque architecto, praesentium nam maiores labore velit ut perspiciatis sunt suscipit ea unde explicabo quia animi deleniti blanditiis porro iste fuga optio atque. Quisquam adipisci, eaque aliquam explicabo magni id molestias veniam iste autem et quam eveniet in veritatis dolorem quia velit hic repellat necessitatibus, provident animi. Blanditiis aliquam eos hic voluptatibus quasi nisi sit obcaecati laboriosam nostrum. Incidunt, atque odio quia nam, reprehenderit corporis unde quas voluptatem totam ea adipisci temporibus.<blockquote>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati ducimus repudiandae consequuntur voluptatibus sit voluptates veniam deserunt, facilis tenetur atque rerum vero ullam porro molestias delectus? Minima et maiores perferendis consectetur dolores explicabo optio aliquid fuga vitae quidem corrupti facere eaque quaerat adipisci consequuntur minus esse, dolorem modi deleniti amet eos sed! Quaerat natus quae voluptate adipisci accusantium ipsa nemo voluptates, fugit, accusamus odio doloremque est quidem voluptatem impedit deserunt ad consectetur neque ut vel illum non id! Vel veritatis ullam dolorum, odit autem voluptate esse. Dicta culpa, ea corrupti modi dolorem debitis assumenda autem et vitae laudantium fuga aut.</p>
+
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt numquam nihil alias consectetur, impedit porro architecto, placeat tenetur, mollitia cupiditate ea cum voluptatibus dolor expedita officiis. Officia possimus vel culpa cumque, repudiandae atque expedita temporibus illum quidem maxime quam aut odit quod labore nostrum rerum non cupiditate voluptas provident inventore vero minima amet aspernatur. Non eos odio rem voluptatibus, laudantium rerum voluptatem iste esse, deleniti unde doloribus cumque molestias. Nostrum in eaque accusamus eligendi fugit. Obcaecati laboriosam eaque dolor, eligendi architecto sed? Consequatur perferendis odit architecto saepe, magnam sunt nemo, exercitationem neque natus debitis quisquam molestiae temporibus obcaecati ducimus sed?</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, quidem non nostrum animi ipsam numquam eius laudantium dolorum accusamus veniam iure optio velit totam deserunt modi blanditiis quibusdam illo ad rerum suscipit molestiae consequatur maxime eligendi. Dignissimos beatae aut adipisci nisi, ex recusandae enim illo accusantium, qui magnam, est consequuntur! Necessitatibus accusamus soluta quaerat laboriosam sapiente nam distinctio, ratione provident perspiciatis et voluptate quam eum velit facilis earum animi porro ullam fuga, est fugit cumque rem quos? Quas, impedit. Consequatur deserunt est officia aspernatur, nemo atque eius, rem quisquam cumque laudantium nesciunt et voluptas quibusdam provident magni fugit. Aperiam, atque.</p>
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis ex cum saepe et, beatae, quia maxime dolorem, quibusdam deserunt eum quod! Minus harum ipsum, dignissimos delectus placeat error vel neque! Doloribus officia tempora ea eius dicta assumenda vel, molestiae sequi, nobis, non iste consequatur quia numquam. Accusamus voluptatibus obcaecati voluptatum, modi vero repellat consequuntur facere qui labore soluta error fugiat consectetur asperiores dignissimos ipsum, debitis facilis doloremque expedita atque! Voluptas enim totam, libero unde incidunt laborum, dicta veritatis cumque, voluptates sit porro ducimus corporis quidem et pariatur reiciendis similique expedita dolor placeat nulla! Expedita ea non voluptatem, omnis neque architecto!</p>
+
+<table class="table">
+<thead>
+
+<tr>
+<th>S No</th>
+<th>Name</th>
+<th>Courses</th>
+<th>Batch</th>
+<th>Phone</th>
+</tr>
+
+</thead>
+<tbody>
+
+<tr>
+    <td>Lorem ipsum</td>
+</tr>
+<tr>
+    <td>Lorem ipsum</td>
+</tr>
+<tr>
+    <td>Lorem ipsum</td>
+</tr>
+<tr>
+    <td>Lorem ipsum</td>
+</tr>
+<tr>
+    <td>Lorem ipsum</td>
+</tr>
+<tr>
+    <td>Lorem ipsum</td>
+</tr>
+<tr>
+    <td>Lorem ipsum</td>
+</tr>
+<tr>
+    <td>Lorem ipsum</td>
+</tr>
+<tr>
+    <td>Lorem ipsum</td>
+</tr>
+<tr>
+    <td>Lorem ipsum</td>
+</tr>
+<tr>
+    <td>Lorem ipsum</td>
+</tr>
+<tr>
+    <td>Lorem ipsum</td>
+</tr>
+<tr>
+    <td>Lorem ipsum</td>
+</tr>
+<tr>
+    <td>Lorem ipsum</td>
+</tr>
+<tr>
+    <td>Lorem ipsum</td>
+</tr>
+<tr>
+    <td>Lorem ipsum</td>
+</tr>
+<tr>
+    <td>Lorem ipsum</td>
+</tr>
+<tr>
+    <td>Lorem ipsum</td>
+</tr>
+<tr>
+    <td>Lorem ipsum</td>
+</tr>
+<tr>
+    <td>Lorem ipsum</td>
+</tr>
+   
+
+
+</tbody>
+
+</table>
+ 
+</article>
+
+</main>
+        
+        <footer>
+            <p>Copy: @2025</p>
+            <p>All Right Reserved</p>
+           
+        </footer>
+
+        <button class="top">Go To Top</button>
+    </div>
+</body>
+</html>
